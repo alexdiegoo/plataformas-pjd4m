@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void OneActionTriggered(InputAction.CallbackContext obj)
     {
-        if (obj.action.name.CompareTo(_gameControls.Gameplay.Moviment.name) != 0)
+        if (obj.action.name.CompareTo(_gameControls.Gameplay.Moviment.name) == 0)
         {
             _moveInput = obj.ReadValue<Vector2>();
         }
