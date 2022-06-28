@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public int coins = 0;
+
     private GameControls _gameControls;
     private PlayerInput _playerInput;
     private Camera _mainCamera;
@@ -111,5 +113,14 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGuzmos()
     {
         Debug.DrawRay(transform.position, Vector3.down * rayDistance, Color.yellow);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Coin"))
+        {
+            coins++;
+            Destroy(other.gameObject);
+        }
     }
 }
